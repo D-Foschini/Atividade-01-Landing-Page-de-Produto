@@ -2,8 +2,8 @@
 
 ## Integrantes
 
-- **Nome do integrante:** preencher antes da entrega
-- **Nome do segundo integrante (se houver):** preencher ou remover esta linha
+- Eric Barbosa Costa
+- Daniel Foschini
 
 ## Sobre o produto
 
