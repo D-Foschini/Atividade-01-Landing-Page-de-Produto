@@ -11,6 +11,16 @@ A **ThermoViva One** é uma garrafa térmica fictícia de 750 ml pensada para pe
 
 A landing page apresenta o produto, seus benefícios, a tecnologia de isolamento, avaliações fictícias, preço, perguntas frequentes e um checkout demonstrativo. Toda a experiência é client-side: o formulário simula uma reserva, mas não envia nem armazena dados.
 
+## Atividade 02 — Acessibilidade e funcionamento com MCP
+
+A análise priorizou o checkout simulado, a navegação por teclado e o FAQ. Foram implementados um modal nativo com controle e retorno de foco, cancelamento do processamento ao fechar a reserva, proteção contra envios repetidos, respostas do FAQ corretamente ocultas, atalho para o conteúdo principal e ajustes de contraste. A arquitetura MVVM e a identidade visual foram preservadas.
+
+Foi utilizado efetivamente o **MCP de Computer/Browser Use**, do plugin **unified-computer-use**, pela ferramenta `mcp__cua_repl`. Ele foi escolhido para inspecionar a página em execução, interagir com o teclado e produzir capturas reais. A árvore de acessibilidade revelou respostas recolhidas ainda expostas e o foco atrás do modal original; as interações permitiram conferir as correções e ajustar o ciclo de Tab. Não foi instalado um servidor Playwright MCP separado: os recursos de automação de navegador pertencem ao MCP utilizado nesta sessão.
+
+Foram verificados os botões de compra, o formulário vazio e com e-mail inválido, o envio válido, o cancelamento durante o processamento, a reabertura, o FAQ, o menu móvel e o atalho por teclado. A página também foi inspecionada em **360, 768 e 1440 pixels**, sem rolagem horizontal, e o build de produção foi concluído. Os contrastes medidos dos destaques dos quatro títulos em fundos claros ficaram entre **5,63:1 e 6,79:1**.
+
+As [capturas e registros de interação](docs/evidencias/README.md) demonstram a contribuição do MCP antes e depois das mudanças. A validação ocorreu no navegador integrado e não incluiu leitores de tela, dispositivos físicos ou todos os navegadores; portanto, não constitui uma certificação integral de acessibilidade. Os dados de teste são fictícios e continuam sem envio ou armazenamento pela aplicação.
+
 ## Jornada de construção
 
 ### Ideia inicial

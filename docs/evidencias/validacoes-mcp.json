@@ -1,0 +1,423 @@
+[
+  {
+    "teste": "Semântica inicial",
+    "resultado": "Um main com oito seções; quatro respostas FAQ ocultas; status de sucesso vazio."
+  },
+  {
+    "teste": "Teclado no modal desktop",
+    "resultado": {
+      "focusCycle": [
+        {
+          "insideDialog": true,
+          "name": "email",
+          "tag": "INPUT"
+        },
+        {
+          "insideDialog": true,
+          "name": "color",
+          "tag": "SELECT"
+        },
+        {
+          "insideDialog": true,
+          "name": "Confirmar reserva",
+          "tag": "BUTTON"
+        },
+        {
+          "insideDialog": true,
+          "name": "Fechar checkout",
+          "tag": "BUTTON"
+        },
+        {
+          "insideDialog": true,
+          "name": "name",
+          "tag": "INPUT"
+        },
+        {
+          "insideDialog": true,
+          "name": "email",
+          "tag": "INPUT"
+        },
+        {
+          "insideDialog": true,
+          "name": "color",
+          "tag": "SELECT"
+        }
+      ],
+      "reverseFocus": {
+        "insideDialog": true,
+        "name": "email"
+      },
+      "returnFocus": {
+        "dialogRemoved": true,
+        "focusText": "Garantir a minha"
+      }
+    }
+  },
+  {
+    "teste": "Validação nativa do formulário",
+    "resultado": "Envio vazio manteve o modal e focou nome. E-mail inválido foi rejeitado.",
+    "detalhes": {
+      "dialogOpen": true,
+      "emailTypeMismatch": true,
+      "focus": "email",
+      "status": ""
+    }
+  },
+  {
+    "teste": "Cancelamento durante processamento",
+    "processamentoObservado": {
+      "busy": "true",
+      "buttonDisabled": true
+    },
+    "aposPrazo": {
+      "dialogRemoved": true,
+      "focused": "Garantir a minha",
+      "status": ""
+    }
+  },
+  {
+    "teste": "Envio válido",
+    "resultado": {
+      "focus": "Comprar agora",
+      "modalRemoved": true,
+      "status": "Reserva confirmada!Simulação concluída com sucesso."
+    }
+  },
+  {
+    "teste": "Todos os CTAs desktop",
+    "resultado": [
+      {
+        "label": "Quero a minha",
+        "opened": {
+          "focusName": "name",
+          "modal": true
+        },
+        "returnedFocus": "Quero a minha"
+      },
+      {
+        "label": "Garantir a minha",
+        "opened": {
+          "focusName": "name",
+          "modal": true
+        },
+        "returnedFocus": "Garantir a minha"
+      },
+      {
+        "label": "Comprar agora",
+        "opened": {
+          "focusName": "name",
+          "modal": true
+        },
+        "returnedFocus": "Comprar agora"
+      },
+      {
+        "label": "Quero minha ThermoViva",
+        "opened": {
+          "focusName": "name",
+          "modal": true
+        },
+        "returnedFocus": "Quero minha ThermoViva"
+      }
+    ]
+  },
+  {
+    "teste": "Shift+Tab no primeiro controle e botão fechar",
+    "resultado": {
+      "tag": "BUTTON",
+      "text": "Confirmar reserva"
+    }
+  },
+  {
+    "teste": "FAQ por teclado",
+    "resultado": "Cinco perguntas acionadas por Enter; Space recolheu a última; relações aria-controls e hidden coerentes.",
+    "detalhes": [
+      [
+        {
+          "expanded": "false",
+          "hidden": true,
+          "question": "A ThermoViva One pode ir à lava-louças?"
+        },
+        {
+          "expanded": "false",
+          "hidden": true,
+          "question": "Ela cabe no porta-copos do carro?"
+        },
+        {
+          "expanded": "false",
+          "hidden": true,
+          "question": "Posso usar com bebidas gaseificadas?"
+        },
+        {
+          "expanded": "false",
+          "hidden": true,
+          "question": "Qual é a capacidade e o peso?"
+        },
+        {
+          "expanded": "false",
+          "hidden": true,
+          "question": "A compra desta página é real?"
+        }
+      ],
+      [
+        {
+          "expanded": "false",
+          "hidden": true,
+          "question": "A ThermoViva One pode ir à lava-louças?"
+        },
+        {
+          "expanded": "true",
+          "hidden": false,
+          "question": "Ela cabe no porta-copos do carro?"
+        },
+        {
+          "expanded": "false",
+          "hidden": true,
+          "question": "Posso usar com bebidas gaseificadas?"
+        },
+        {
+          "expanded": "false",
+          "hidden": true,
+          "question": "Qual é a capacidade e o peso?"
+        },
+        {
+          "expanded": "false",
+          "hidden": true,
+          "question": "A compra desta página é real?"
+        }
+      ],
+      [
+        {
+          "expanded": "false",
+          "hidden": true,
+          "question": "A ThermoViva One pode ir à lava-louças?"
+        },
+        {
+          "expanded": "false",
+          "hidden": true,
+          "question": "Ela cabe no porta-copos do carro?"
+        },
+        {
+          "expanded": "true",
+          "hidden": false,
+          "question": "Posso usar com bebidas gaseificadas?"
+        },
+        {
+          "expanded": "false",
+          "hidden": true,
+          "question": "Qual é a capacidade e o peso?"
+        },
+        {
+          "expanded": "false",
+          "hidden": true,
+          "question": "A compra desta página é real?"
+        }
+      ],
+      [
+        {
+          "expanded": "false",
+          "hidden": true,
+          "question": "A ThermoViva One pode ir à lava-louças?"
+        },
+        {
+          "expanded": "false",
+          "hidden": true,
+          "question": "Ela cabe no porta-copos do carro?"
+        },
+        {
+          "expanded": "false",
+          "hidden": true,
+          "question": "Posso usar com bebidas gaseificadas?"
+        },
+        {
+          "expanded": "true",
+          "hidden": false,
+          "question": "Qual é a capacidade e o peso?"
+        },
+        {
+          "expanded": "false",
+          "hidden": true,
+          "question": "A compra desta página é real?"
+        }
+      ],
+      [
+        {
+          "expanded": "false",
+          "hidden": true,
+          "question": "A ThermoViva One pode ir à lava-louças?"
+        },
+        {
+          "expanded": "false",
+          "hidden": true,
+          "question": "Ela cabe no porta-copos do carro?"
+        },
+        {
+          "expanded": "false",
+          "hidden": true,
+          "question": "Posso usar com bebidas gaseificadas?"
+        },
+        {
+          "expanded": "false",
+          "hidden": true,
+          "question": "Qual é a capacidade e o peso?"
+        },
+        {
+          "expanded": "true",
+          "hidden": false,
+          "question": "A compra desta página é real?"
+        }
+      ]
+    ]
+  },
+  {
+    "teste": "Atalho pular para conteúdo",
+    "resultado": {
+      "skipFocus": {
+        "outline": "solid",
+        "text": "Pular para o conteúdo",
+        "top": 12
+      },
+      "skipDestination": {
+        "hash": "#conteudo",
+        "id": "conteudo",
+        "tag": "MAIN"
+      }
+    }
+  },
+  {
+    "teste": "Responsividade em 360, 768 e 1440 pixels",
+    "resultado": [
+      {
+        "clientWidth": 345,
+        "height": 800,
+        "heroTitleWidth": 313,
+        "horizontalOverflow": false,
+        "menuVisible": true,
+        "scrollWidth": 345,
+        "width": 360
+      },
+      {
+        "clientWidth": 753,
+        "height": 1024,
+        "heroTitleWidth": 339.875,
+        "horizontalOverflow": false,
+        "menuVisible": true,
+        "scrollWidth": 753,
+        "width": 768
+      },
+      {
+        "clientWidth": 1425,
+        "height": 900,
+        "heroTitleWidth": 671.9375,
+        "horizontalOverflow": false,
+        "menuVisible": false,
+        "scrollWidth": 1425,
+        "width": 1440
+      }
+    ]
+  },
+  {
+    "teste": "Menu e checkout móvel",
+    "resultado": {
+      "menuEscape": {
+        "expanded": "false",
+        "focus": "menu-toggle"
+      },
+      "mobileModal": {
+        "clientWidth": 360,
+        "dialogBounds": {
+          "height": 691.59375,
+          "width": 320
+        },
+        "expanded": "false",
+        "focusedField": "name",
+        "scrollWidth": 360
+      },
+      "mobileReturn": {
+        "dialogRemoved": true,
+        "focus": "menu-toggle"
+      }
+    }
+  },
+  {
+    "teste": "Fechamento pelo fundo",
+    "resultado": {
+      "dialogRemoved": true,
+      "focus": "Garantir a minha"
+    }
+  },
+  {
+    "teste": "Envio repetido por Enter e reabertura após cancelar",
+    "duranteEnvio": {
+      "busy": "true",
+      "disabled": true
+    },
+    "aposPrazo": {
+      "modalStillOpen": true,
+      "nameEmpty": true,
+      "submitEnabled": true,
+      "successText": ""
+    }
+  },
+  {
+    "teste": "Contraste dos quatro títulos em fundos claros",
+    "resultado": [
+      {
+        "background": "rgb(243, 241, 232)",
+        "color": "rgb(74, 97, 12)",
+        "selector": "#beneficios h2 em",
+        "ratio": 6.17
+      },
+      {
+        "background": "rgb(252, 252, 248)",
+        "color": "rgb(74, 97, 12)",
+        "selector": "#como-funciona h2 em",
+        "ratio": 6.79
+      },
+      {
+        "background": "rgb(233, 231, 220)",
+        "color": "rgb(74, 97, 12)",
+        "selector": "#avaliacoes h2 em",
+        "ratio": 5.63
+      },
+      {
+        "background": "rgb(252, 252, 248)",
+        "color": "rgb(74, 97, 12)",
+        "selector": "#faq h2 em",
+        "ratio": 6.79
+      }
+    ]
+  },
+  {
+    "teste": "Links internos de navegação",
+    "resultado": [
+      {
+        "hash": "#beneficios",
+        "targetExists": true
+      },
+      {
+        "hash": "#como-funciona",
+        "targetExists": true
+      },
+      {
+        "hash": "#avaliacoes",
+        "targetExists": true
+      },
+      {
+        "hash": "#faq",
+        "targetExists": true
+      },
+      {
+        "hash": "#beneficios",
+        "targetExists": true
+      },
+      {
+        "hash": "#faq",
+        "targetExists": true
+      },
+      {
+        "hash": "#top",
+        "targetExists": true
+      }
+    ]
+  }
+]

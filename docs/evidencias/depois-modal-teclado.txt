@@ -1,0 +1,23 @@
+Browser tab: 2, Title: "ThermoViva One | Temperatura que acompanha seu ritmo", URL: "http://127.0.0.1:5173/#beneficios".
+1 AXWebArea ThermoViva One | Temperatura que acompanha seu ritmo, URL: 127.0.0.1:5173/#beneficios
+	2 container Garanta sua ThermoViva.
+		3 button Fechar checkout
+		4 text RESERVA SIMULADA
+		5 heading Garanta sua ThermoViva., Value: 2, ID: checkout-title
+			6 text Garanta sua ThermoViva.
+		7 text Preencha seus dados para simular a reserva. Nenhuma cobrança será feita.
+		8 container
+			9 text NOME COMPLETO
+			10 text field (settable) NOME COMPLETO
+			11 text E-MAIL
+			12 text field (settable) E-MAIL
+			13 text COR PREFERIDA
+			14 pop up button (collapsed, settable) COR PREFERIDA, Value: Eclipse, Secondary Actions: Expand
+				15 menu
+					16 (selected) Eclipse
+					17 Areia
+					18 Verde musgo
+			19 button Confirmar reserva
+		20 text Seus dados não são enviados nem armazenados.
+
+The focused UI element is 10 text field (settable) NOME COMPLETO

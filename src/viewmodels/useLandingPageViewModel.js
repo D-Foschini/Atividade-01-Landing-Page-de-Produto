@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 export function useLandingPageViewModel() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -6,6 +6,9 @@ export function useLandingPageViewModel() {
   const [checkoutOpen, setCheckoutOpen] = useState(false)
   const [checkoutLoading, setCheckoutLoading] = useState(false)
   const [success, setSuccess] = useState(false)
+  const checkoutTimer = useRef(null)
+
+  useEffect(() => () => window.clearTimeout(checkoutTimer.current), [])
 
   useEffect(() => {
     if (!success) return undefined
@@ -13,25 +16,32 @@ export function useLandingPageViewModel() {
     return () => window.clearTimeout(timer)
   }, [success])
 
-  const openCheckout = () => {
+  const openCheckout = useCallback(() => {
     setMenuOpen(false)
+    setSuccess(false)
     setCheckoutOpen(true)
-  }
+  }, [])
 
-  const closeCheckout = () => {
+  const closeCheckout = useCallback(() => {
+    window.clearTimeout(checkoutTimer.current)
+    checkoutTimer.current = null
     setCheckoutOpen(false)
     setCheckoutLoading(false)
-  }
+  }, [])
 
   const submitCheckout = (event) => {
     event.preventDefault()
+    if (!checkoutOpen || checkoutTimer.current !== null || !event.currentTarget.reportValidity()) return
     setCheckoutLoading(true)
-    window.setTimeout(() => {
+    checkoutTimer.current = window.setTimeout(() => {
+      checkoutTimer.current = null
       setCheckoutLoading(false)
       setCheckoutOpen(false)
       setSuccess(true)
     }, 900)
   }
+
+  const closeMenu = useCallback(() => setMenuOpen(false), [])
 
   const toggleFaq = (index) => {
     setActiveFaq((current) => (current === index ? -1 : index))
@@ -44,7 +54,7 @@ export function useLandingPageViewModel() {
     checkoutLoading,
     success,
     toggleMenu: () => setMenuOpen((current) => !current),
-    closeMenu: () => setMenuOpen(false),
+    closeMenu,
     toggleFaq,
     openCheckout,
     closeCheckout,

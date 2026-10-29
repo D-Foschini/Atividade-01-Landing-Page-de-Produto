@@ -1,0 +1,3 @@
+Browser tab: 2, Title: "ThermoViva One | Temperatura que acompanha seu ritmo", URL: "http://127.0.0.1:5173/#beneficios".
+There has been no change in the accessibility tree.
+The focused UI element is 19 link Description: Descobrir como funciona, URL: 127.0.0.1:5173/#como-funciona

@@ -1,0 +1,24 @@
+Registro da versão original — trechos transcritos do retorno real do MCP
+Ferramenta: mcp__cua_repl (Computer/Browser Use)
+Página: http://127.0.0.1:5173/
+Origem: árvore de acessibilidade exibida ao criar a aba 2, antes das alterações.
+
+As perguntas abaixo estavam recolhidas, mas suas respostas continuavam expostas:
+
+143 container
+  144 button (collapsed) Ela cabe no porta-copos do carro?, Secondary Actions: Expand
+  145 text Sim. A base tem 7,2 cm de diâmetro e foi desenhada para os porta-copos mais comuns.
+146 container
+  147 button (collapsed) Posso usar com bebidas gaseificadas?, Secondary Actions: Expand
+  148 text Não recomendamos. A pressão acumulada pode comprometer a abertura segura da tampa.
+149 container
+  150 button (collapsed) Qual é a capacidade e o peso?, Secondary Actions: Expand
+  151 text A ThermoViva One comporta 750 ml e pesa aproximadamente 390 g vazia.
+152 container
+  153 button (collapsed) A compra desta página é real?, Secondary Actions: Expand
+  154 text Não. Este é um produto fictício e o checkout é apenas uma simulação acadêmica — nenhum pagamento será realizado.
+
+Também havia uma confirmação no conteúdo acessível antes de enviar qualquer formulário:
+
+166 container
+  167 text Reserva confirmada! Simulação concluída com sucesso.

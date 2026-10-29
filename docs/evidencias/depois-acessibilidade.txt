@@ -1,0 +1,163 @@
+Browser tab: 2, Title: "ThermoViva One | Temperatura que acompanha seu ritmo", URL: "http://127.0.0.1:5173/#beneficios".
+1 AXWebArea ThermoViva One | Temperatura que acompanha seu ritmo, URL: 127.0.0.1:5173/#beneficios
+	2 container root
+		3 link Description: Pular para o conteúdo, Value: 127.0.0.1:5173/#conteudo
+		4 container
+			5 link Description: ThermoViva - início, Value: 127.0.0.1:5173/#top
+			6 container Description: Navegação principal, ID: primary-navigation
+				7 link Description: Benefícios, Value: 127.0.0.1:5173/#beneficios
+				8 link Description: Como funciona, Value: 127.0.0.1:5173/#como-funciona
+				9 link Description: Avaliações, Value: 127.0.0.1:5173/#avaliacoes
+				10 link Description: FAQ, Value: 127.0.0.1:5173/#faq
+			11 button Quero a minha
+		12 container conteudo
+			13 container
+				14 image Garrafa térmica ThermoViva One preta sobre pedra
+				15 text NOVA THERMOVIVA ONE
+				16 heading Seu ritmo muda. Sua bebida não., Value: 1
+					17 text Seu ritmo muda.
+					18 text Sua bebida não.
+				19 text A garrafa térmica de 750 ml feita para acompanhar cada mudança do seu dia — do primeiro café ao último treino.
+				20 button Garantir a minha
+				21 link Description: Descobrir como funciona, Value: 127.0.0.1:5173/#como-funciona
+				22 container 5 de 5 estrelas
+					23 text ★★★★★
+				24 text Aprovada por quem não para
+				25 container Resumo das especificações
+					26 text 24H
+					27 text GELADO
+					28 text 12H
+					29 text QUENTE
+					30 text 750
+					31 text MILILITROS
+					32 text 100%
+					33 text À PROVA DE VAZAMENTOS
+			34 container Qualidades do produto
+				35 text SEM SUOR AÇO INOX 304 LIVRE DE BPA DESIGN PARA A ROTINA
+			36 container beneficios
+				37 text POR QUE THERMOVIVA?
+				38 heading Projetada para dias imprevisíveis., Value: 2
+					39 text Projetada para
+					40 text dias 
+					41 text imprevisíveis.
+				42 text Sua agenda muda. O clima muda. Seus planos mudam. Criamos uma garrafa que mantém pelo menos uma coisa exatamente como você quer.
+				43 container
+					44 text 01
+					45 heading 12h quente. 24h gelado., Value: 3
+						46 text 12h quente. 24h gelado.
+					47 text Parede dupla a vácuo que segura a temperatura sem deixar a parte externa suar.
+				48 container
+					49 text 02
+					50 heading Vedação sem sustos, Value: 3
+						51 text Vedação sem sustos
+					52 text Tampa rosqueável com anel de silicone. Pode levar na mochila, de verdade.
+				53 container
+					54 text 03
+					55 heading Uma garrafa, menos descarte, Value: 3
+						56 text Uma garrafa, menos descarte
+					57 text Aço inox 304 durável, livre de BPA e pronto para substituir copos descartáveis.
+			58 container
+				59 container Representação técnica das camadas da ThermoViva One
+					60 container
+						61 text THERMO
+						62 text VIVA
+					63 text AÇO INOX 304 PAREDE DUPLA ISOLAMENTO A VÁCUO
+				64 text TECNOLOGIA THERMOCORE™
+				65 heading O lado de fora não conta o que acontece por dentro., Value: 2
+					66 text O lado de fora não conta o que acontece 
+					67 text por dentro.
+				68 text Duas paredes de aço inoxidável criam uma câmara de vácuo que reduz a troca de calor. Resultado: café quente, água gelada e suas mãos sempre confortáveis.
+				69 content list
+					70 container
+						71 text Frio fica frio  — até 24 horas, sem condensação externa.
+					72 container
+						73 text Quente fica quente  — até 12 horas, sem aquecer as mãos.
+					74 container
+						75 text Sabor intacto  — material atóxico que não retém odor.
+			76 container como-funciona
+				77 text SIMPLES COMO DEVE SER
+				78 heading Três passos. Zero complicação., Value: 2
+					79 text Três passos. 
+					80 text Zero complicação.
+				81 container
+					82 text 0 1
+					83 heading Encha, Value: 3
+						84 text Encha
+					85 text Adicione sua bebida quente ou fria. A boca larga facilita gelo e limpeza.
+				86 container
+					87 text 0 2
+					88 heading Feche, Value: 3
+						89 text Feche
+					90 text Gire a tampa até sentir o encaixe da vedação ThermoLock™.
+				91 container
+					92 text 0 3
+					93 heading Viva, Value: 3
+						94 text Viva
+					95 text Leve na rotina e aproveite a temperatura certa até o último gole.
+				96 text 07:30
+				97 text Café passado, dia iniciado.
+				98 text 15:30
+				99 text Ainda quente. Ainda perfeito.
+			100 container avaliacoes
+				101 text AVALIAÇÕES ILUSTRATIVAS
+				102 heading Quem usa, não larga., Value: 2
+					103 text Quem usa,
+					104 text não larga.
+				105 text 4.9
+				106 text ★★★★★
+				107 text avaliação fictícia do protótipo
+				108 container
+					109 text ★★★★★ “ Saio às 7h e meu café ainda está quente depois do almoço. Virou item obrigatório na mochila. ” MA Marina Alves Designer • avaliação fictícia
+				110 container
+					111 text ★★★★★ “ Não vazou nem no treino, nem no metrô. A pegada fosca e a alça fazem muita diferença. ” CM Caio Mendes Corredor amador • avaliação fictícia
+				112 container
+					113 text ★★★★★ “ Bonita na mesa e resistente para levar em viagem. Finalmente uma garrafa que combina com tudo. ” BR Bianca Rocha Fotógrafa • avaliação fictícia
+			114 container oferta
+				115 text LOTE DE LANÇAMENTO
+				116 heading Menos descartáveis. Mais momentos., Value: 2
+					117 text Menos descartáveis.
+					118 text Mais 
+					119 text momentos.
+				120 text ThermoViva One 750 ml na cor Eclipse, com alça de silicone e embalagem reciclável.
+				121 content list
+					122 text Frete grátis para todo o Brasil
+					123 text 30 dias para testar
+					124 text 2 anos de garantia
+				125 text DE 
+				126 text R$ 249,90
+				127 text  POR
+				128 text R$
+				129 text 189
+				130 text ,90
+				131 text ou 6× de R$ 31,65 sem juros
+				132 button Comprar agora
+				133 text Checkout demonstrativo e sem cobrança
+			134 container faq
+				135 container
+					136 text DÚVIDAS? A GENTE RESPONDE.
+					137 heading Tudo o que você precisa saber., Value: 2
+						138 text Tudo o que você precisa 
+						139 text saber.
+					140 text Ainda ficou com alguma pergunta? Escreva para 
+					141 link Description: ola@thermoviva.com, Value: mailto:ola@thermoviva.com
+				142 container
+					143 button (expanded) A ThermoViva One pode ir à lava-louças?, ID: faq-question-0, Secondary Actions: Collapse
+					144 container A ThermoViva One pode ir à lava-louças?, ID: faq-answer-0
+						145 text Para preservar o acabamento fosco e a vedação, recomendamos lavar à mão com esponja macia. A tampa pode ser desmontada para uma limpeza completa.
+				146 button (collapsed) Ela cabe no porta-copos do carro?, ID: faq-question-1, Secondary Actions: Expand
+				147 button (collapsed) Posso usar com bebidas gaseificadas?, ID: faq-question-2, Secondary Actions: Expand
+				148 button (collapsed) Qual é a capacidade e o peso?, ID: faq-question-3, Secondary Actions: Expand
+				149 button (collapsed) A compra desta página é real?, ID: faq-question-4, Secondary Actions: Expand
+		150 container
+			151 text PRONTO PARA MUDAR O RITMO?
+			152 heading Leve a temperatura certa com você., Value: 2
+				153 text Leve a temperatura certa 
+				154 text com você.
+			155 button Quero minha ThermoViva
+			156 link Description: ThermoViva - início, Value: 127.0.0.1:5173/#top
+			157 text Produto e avaliações fictícios. Projeto acadêmico desenvolvido em React.
+			158 link Description: Produto, Value: 127.0.0.1:5173/#beneficios
+			159 link Description: Ajuda, Value: 127.0.0.1:5173/#faq
+			160 link Description: Voltar ao topo ↑, Value: 127.0.0.1:5173/#top
+
+The focused UI element is 1 AXWebArea ThermoViva One | Temperatura que acompanha seu ritmo, URL: 127.0.0.1:5173/#beneficios

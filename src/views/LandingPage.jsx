@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import {
   ArrowRight,
   Check,
@@ -33,11 +33,24 @@ function Logo() {
 }
 
 function Header({ onBuy, open, onToggle, onClose }) {
+  const menuButtonRef = useRef(null)
+
+  useEffect(() => {
+    if (!open) return undefined
+    const onKey = (event) => {
+      if (event.key !== 'Escape') return
+      onClose()
+      menuButtonRef.current?.focus()
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [open, onClose])
+
   return (
     <header className={css('site-header')}>
       <div className={css('container', 'nav-wrap')}>
         <Logo />
-        <nav className={open ? css('nav-links', 'is-open') : css('nav-links')} aria-label="Navegação principal">
+        <nav id="primary-navigation" className={open ? css('nav-links', 'is-open') : css('nav-links')} aria-label="Navegação principal">
           <a href="#beneficios" onClick={onClose}>Benefícios</a>
           <a href="#como-funciona" onClick={onClose}>Como funciona</a>
           <a href="#avaliacoes" onClick={onClose}>Avaliações</a>
@@ -49,7 +62,7 @@ function Header({ onBuy, open, onToggle, onClose }) {
         <button className={css('btn', 'btn-small', 'desktop-buy')} onClick={onBuy}>
           Quero a minha <ArrowRight size={16} />
         </button>
-        <button className={css('menu-button')} onClick={onToggle} aria-label={open ? 'Fechar menu' : 'Abrir menu'} aria-expanded={open}>
+        <button id="menu-toggle" ref={menuButtonRef} className={css('menu-button')} onClick={onToggle} aria-label={open ? 'Fechar menu' : 'Abrir menu'} aria-expanded={open} aria-controls="primary-navigation">
           {open ? <X /> : <Menu />}
         </button>
       </div>
@@ -59,7 +72,7 @@ function Header({ onBuy, open, onToggle, onClose }) {
 
 function Hero({ onBuy }) {
   return (
-    <main id="top">
+    <>
       <section className={css('hero')}>
         <div className={css('hero-image')} role="img" aria-label="Garrafa térmica ThermoViva One preta sobre pedra"></div>
         <div className={css('hero-shade')}></div>
@@ -87,7 +100,7 @@ function Hero({ onBuy }) {
       <section className={css('marquee')} aria-label="Qualidades do produto">
         <div>SEM SUOR <Sparkles size={16} /> AÇO INOX 304 <Sparkles size={16} /> LIVRE DE BPA <Sparkles size={16} /> DESIGN PARA A ROTINA <Sparkles size={16} /></div>
       </section>
-    </main>
+    </>
   )
 }
 
@@ -239,10 +252,10 @@ function FAQ({ active, onToggle }) {
             const isOpen = active === index
             return (
               <article className={isOpen ? css('faq-item', 'open') : css('faq-item')} key={question}>
-                <button onClick={() => onToggle(index)} aria-expanded={isOpen}>
+                <button id={`faq-question-${index}`} onClick={() => onToggle(index)} aria-expanded={isOpen} aria-controls={`faq-answer-${index}`}>
                   <span>{question}</span><ChevronDown size={21} />
                 </button>
-                <div className={css('faq-answer')}><p>{answer}</p></div>
+                <div id={`faq-answer-${index}`} className={css('faq-answer')} role="region" aria-labelledby={`faq-question-${index}`} hidden={!isOpen}><p>{answer}</p></div>
               </article>
             )
           })}
@@ -268,51 +281,91 @@ function Footer({ onBuy }) {
   )
 }
 
-function CheckoutModal({ onClose, onSubmit, loading }) {
+function CheckoutModal({ onClose, onSubmit, loading, returnFocusTo }) {
+  const dialogRef = useRef(null)
+  const nameInputRef = useRef(null)
+
   useEffect(() => {
-    const onKey = (event) => event.key === 'Escape' && onClose()
-    document.addEventListener('keydown', onKey)
+    const dialog = dialogRef.current
+    const previousOverflow = document.body.style.overflow
+    dialog.showModal()
+    nameInputRef.current.focus()
     document.body.style.overflow = 'hidden'
-    return () => { document.removeEventListener('keydown', onKey); document.body.style.overflow = '' }
-  }, [onClose])
+    return () => {
+      dialog.close()
+      document.body.style.overflow = previousOverflow
+      // O CTA do menu móvel fica oculto ao abrir o checkout.
+      const target = returnFocusTo?.isConnected && returnFocusTo.getClientRects().length
+        ? returnFocusTo
+        : document.getElementById('menu-toggle')
+      target?.focus({ preventScroll: true })
+    }
+  }, [returnFocusTo])
+
+  const closeOnBackdrop = (event) => {
+    if (event.target !== event.currentTarget) return
+    const bounds = event.currentTarget.getBoundingClientRect()
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) onClose()
+  }
+
+  const keepFocusInDialog = (event) => {
+    if (event.key !== 'Tab') return
+    const controls = event.currentTarget.querySelectorAll('button:not(:disabled), input:not(:disabled), select:not(:disabled)')
+    const first = controls[0]
+    const last = controls[controls.length - 1]
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault()
+      last.focus()
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault()
+      first.focus()
+    }
+  }
 
   return (
-    <div className={css('modal-backdrop')} onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
-      <div className={css('modal')} role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+      <dialog ref={dialogRef} className={css('modal')} aria-labelledby="checkout-title" aria-describedby="checkout-description" onCancel={(event) => { event.preventDefault(); onClose() }} onClick={closeOnBackdrop} onKeyDown={keepFocusInDialog}>
         <button className={css('modal-close')} onClick={onClose} aria-label="Fechar checkout"><X size={20} /></button>
         <div className={css('modal-icon')}><PackageCheck size={28} /></div>
         <span className={css('section-tag')}>RESERVA SIMULADA</span>
         <h2 id="checkout-title">Garanta sua ThermoViva.</h2>
-        <p>Preencha seus dados para simular a reserva. Nenhuma cobrança será feita.</p>
-        <form onSubmit={onSubmit}>
-          <label>Nome completo<input required name="name" placeholder="Como podemos chamar você?" /></label>
-          <label>E-mail<input required type="email" name="email" placeholder="voce@exemplo.com" /></label>
+        <p id="checkout-description">Preencha seus dados para simular a reserva. Nenhuma cobrança será feita.</p>
+        <form onSubmit={onSubmit} aria-busy={loading}>
+          <label>Nome completo<input ref={nameInputRef} autoFocus required autoComplete="name" name="name" placeholder="Como podemos chamar você?" /></label>
+          <label>E-mail<input required type="email" autoComplete="email" name="email" placeholder="voce@exemplo.com" /></label>
           <label>Cor preferida<select name="color" defaultValue="Eclipse"><option>Eclipse</option><option>Areia</option><option>Verde musgo</option></select></label>
           <button className={css('btn', 'btn-primary')} type="submit" disabled={loading}>{loading ? 'Processando...' : 'Confirmar reserva'} {!loading && <ArrowRight size={18} />}</button>
         </form>
         <small><ShieldCheck size={14} /> Seus dados não são enviados nem armazenados.</small>
-      </div>
-    </div>
+      </dialog>
   )
 }
 
 function LandingPage() {
   const vm = useLandingPageViewModel()
+  const checkoutTriggerRef = useRef(null)
+  const onBuy = (event) => {
+    checkoutTriggerRef.current = event.currentTarget
+    vm.openCheckout()
+  }
 
   return (
     <>
-      <Header onBuy={vm.openCheckout} open={vm.menuOpen} onToggle={vm.toggleMenu} onClose={vm.closeMenu} />
-      <Hero onBuy={vm.openCheckout} />
-      <Benefits />
-      <Technology />
-      <HowItWorks />
-      <Reviews />
-      <Offer onBuy={vm.openCheckout} />
-      <FAQ active={vm.activeFaq} onToggle={vm.toggleFaq} />
-      <Footer onBuy={vm.openCheckout} />
-      {vm.checkoutOpen && <CheckoutModal onClose={vm.closeCheckout} onSubmit={vm.submitCheckout} loading={vm.checkoutLoading} />}
-      <div className={vm.success ? css('toast', 'show') : css('toast')} role="status">
-        <span><Check size={18} /></span><div><strong>Reserva confirmada!</strong><small>Simulação concluída com sucesso.</small></div>
+      <a className={css('skip-link')} href="#conteudo">Pular para o conteúdo</a>
+      <Header onBuy={onBuy} open={vm.menuOpen} onToggle={vm.toggleMenu} onClose={vm.closeMenu} />
+      <main id="conteudo" tabIndex={-1}>
+        <div id="top" />
+        <Hero onBuy={onBuy} />
+        <Benefits />
+        <Technology />
+        <HowItWorks />
+        <Reviews />
+        <Offer onBuy={onBuy} />
+        <FAQ active={vm.activeFaq} onToggle={vm.toggleFaq} />
+      </main>
+      <Footer onBuy={onBuy} />
+      {vm.checkoutOpen && <CheckoutModal onClose={vm.closeCheckout} onSubmit={vm.submitCheckout} loading={vm.checkoutLoading} returnFocusTo={checkoutTriggerRef.current} />}
+      <div className={vm.success ? css('toast', 'show') : css('toast')} role="status" aria-atomic="true">
+        {vm.success && <><span><Check size={18} /></span><div><strong>Reserva confirmada!</strong><small>Simulação concluída com sucesso.</small></div></>}
       </div>
     </>
   )
